@@ -41,18 +41,18 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
 @media (min-width: 768px) {
     html {
         font-size: 20px;
         line-height: 1.6;
     }
     
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
 }
 
 /*
@@ -184,7 +184,44 @@ a:focus {
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
 
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flow-root;
+}
+
+.o-section+.o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+
+    .o-section--lg+.o-section--lg,
+    .o-section--xl+.o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl+.o-section--xl {
+        margin-top: 72px;
+    }
+}
 /*
     Objects: Row
     ---
@@ -195,6 +232,22 @@ a:focus {
     position: relative;
     padding: 24px 24px 0;
     display: flow-root;
+}
+@media (min-width: 768px) {
+    .o-row{
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .o.row--md{
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+
+    .o.row--lg{
+        padding-top: 72px;
+        padding-bottom: 48px;
+    }
 }
 
 /* size modifiers */
@@ -225,7 +278,7 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 70em; /* 90 * 16px = 1440px */
+    max-width: 56.4em; /* 56.4 * 20px = 1128px */
 }
 
 /*
@@ -367,11 +420,85 @@ a:focus {
         height: 40px;
     }
 }
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
 
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav--meta{
+    font-size: 16px;
+}
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px 0;
+    display: block;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active{
+    color: #6C6C75;
+}
+.c-nav__link,.is-selected,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: flex;
+        gap: 25px;
+        
+    }
+
+}
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
 
+.u-pt-clear {
+    padding-top: 0 !important;
+}
 /*
     Utilities: max-width
     ---
