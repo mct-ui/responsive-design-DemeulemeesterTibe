@@ -233,6 +233,9 @@ a:focus {
     padding: 24px 24px 0;
     display: flow-root;
 }
+.o-row—neutral-x-light{
+    background-color: #F7F7F7;
+}
 @media (min-width: 768px) {
     .o-row{
         padding-left: 48px;
